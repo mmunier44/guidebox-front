@@ -10,4 +10,10 @@ if (window.location.hostname === 'localhost') {
   apiUrl = apiUrls.production
 }
 
-export default apiUrl
+const API_KEY = 'APgEMGS6KSeiwr0swzgWYz'
+
+export {
+  apiUrl,
+  API_KEY,
+  API
+}
