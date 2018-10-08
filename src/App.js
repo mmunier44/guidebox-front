@@ -8,8 +8,7 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
-import Nav from './components/Nav'
-import Home from './containers/Home'
+
 
 class App extends Component {
   constructor () {

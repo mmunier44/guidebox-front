@@ -17,6 +17,7 @@ const Routes = (
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
       <IndexRoute component={Home} />
+      <Route path="Add" component={Add} />
     </Route>
   </Router>
 )
