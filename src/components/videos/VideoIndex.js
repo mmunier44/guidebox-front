@@ -40,7 +40,6 @@ class VideoIndex extends React.Component {
     axios({
       url: `${apiUrl}/videos/${videoId}`,
       headers: {
-        'Content-Type': 'application/json',
         'Authorization':`Token token=${user.token}`
       },
       method: 'DELETE'
@@ -53,11 +52,11 @@ class VideoIndex extends React.Component {
       return (
         <tr key={video.id}>
           <td><Link
-            to={`/videos/${video.id}/show`}>{video.title}</Link></td>
+            to={`/videos/${video.id}/show`}>{video.url}</Link> | </td>
           <td>
             <Link
               to={`/videos/${video.id}/edit`}>update<
-            /Link> | <a href="" onClick={(event) => this.deleteVideo(event,
+            /Link> | <a href=" " onClick={(event) => this.deleteVideo(event,
               video.id)}>delete</a>
           </td>
         </tr>
@@ -67,7 +66,7 @@ class VideoIndex extends React.Component {
     return (
       <Layout>
         <h1>Videos</h1>
-        
+
         <table>
           <tbody>
             {videoRows}

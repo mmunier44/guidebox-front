@@ -8,10 +8,6 @@ const VideoForm = (props) => {
   return (
     <React.Fragment>
       <h1>{formattedAction} Video</h1>
-
-      <p><input type="disabled" name="uuid"
-        value={video.uuid} onChange={handleChange}
-        placeholder ="uuid" /></p>
       <p><input type ="text" name="url"
         value={video.url}
         onChange={handleChange}
@@ -37,3 +33,7 @@ const VideoForm = (props) => {
 }
 
 export default VideoForm
+
+// <p><input type="disabled" name="uuid"
+//   value={video.uuid} onChange={handleChange}
+//   placeholder ="uuid" /></p>

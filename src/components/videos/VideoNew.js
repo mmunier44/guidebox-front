@@ -30,9 +30,17 @@ class VideoNew extends React.Component {
     event.preventDefault()
 
     const videoParams = JSON.stringify({video: this.state.video})
+    console.log('DRAGONS this.state.video is' ,this.state.video)
+    const { history, user } = this.props
     const response = await
-      axios.post(`${apiUrl}/videos`,
-        videoParams)
+      axios({
+        url: `${apiUrl}/videos/${videoParams}`,
+        headers: {
+          'Authorization':`Token token=${user.token}`
+        },
+        method: 'POST'
+      })
+    console.log('DRAGONS2', videoParams)
 
     this.props.history.push(`/videos/${response.data.video.id}/show`)
   }
