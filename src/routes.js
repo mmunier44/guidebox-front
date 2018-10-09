@@ -5,7 +5,7 @@ import {
   Route,
   IndexRoute,
   hashHistory
-} from 'react-router'
+} from 'react-router-dom'
 
 import Layout from 'components'
 

@@ -6,6 +6,7 @@ import App from './App'
 import { HashRouter } from 'react-router-dom'
 // import Nav from './src/components/Nav'
 // import Layout from './src/components/Layout'
+// import Routes from './routes'
 
 const appJsx = (
   <HashRouter>
