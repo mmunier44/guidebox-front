@@ -6,12 +6,13 @@ const Layout = (props) => {
   const { children } = props
   return (
     <div>
-      <Nav />
-      {children}
 
+      {children}
 
     </div>
   )
 }
 
 export default Layout
+
+// <Nav />
