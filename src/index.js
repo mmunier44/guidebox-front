@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom'
 import './index.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App'
-import { HashRouter } from 'react-router-dom'
+import { HashRouter, BrowserRouter } from 'react-router-dom'
 // import Nav from './src/components/Nav'
 // import Layout from './src/components/Layout'
-// import Routes from './routes'
+import Routes from './routes'
+import VideoIndex from './components/videos/VideoIndex'
 
 const appJsx = (
-  <HashRouter>
+  <BrowserRouter>
     <App />
 
-  </HashRouter>
+  </BrowserRouter>
 )
 
 ReactDOM.render(appJsx, document.getElementById('root'))
@@ -20,3 +21,5 @@ ReactDOM.render(appJsx, document.getElementById('root'))
 
 // <Nav />
 // <Layout />
+// <App />
+// <Routes />

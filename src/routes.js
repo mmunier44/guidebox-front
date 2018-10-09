@@ -3,23 +3,30 @@ import React from 'react'
 import {
   Router,
   Route,
-  IndexRoute,
-  hashHistory
+  HashRouter,
+  Switch,
+  Link
 } from 'react-router-dom'
 
-import Layout from 'components'
+import Layout from './components'
 
-import { Home, Add } from 'containers'
+import { Home, Add } from './containers'
 
 // App routes
 // IndexRoute renders Home container by default
-const Routes = (
-  <Router history={hashHistory}>
-    <Route path="/" component={Layout}>
-      <IndexRoute component={Home} />
-      <Route path="Add" component={Add} />
-    </Route>
-  </Router>
+const Routes = () => (
+  <HashRouter>
+    <React.Fragment>
+      <Switch>
+        <Route exact path="/" component={Layout}>
+          {
+          }
+          <Route exact path ="/" component={Home} />
+          <Route exact path="Add" component={Add} />
+        </Route>
+      </Switch>
+    </React.Fragment>
+  </HashRouter>
 )
 
 export default Routes

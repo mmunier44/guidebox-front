@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Video } from 'components'
+import { Video } from '../components'
 
 const VideosList = ({ videos }) => (
   <div>

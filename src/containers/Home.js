@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { VideosList, Footer } from '../components'
 import { API } from '../apiConfig'
 
+
 export default class Home extends Component {
 
   constructor(props) {

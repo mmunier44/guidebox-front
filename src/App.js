@@ -10,6 +10,13 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+import Home from './containers/Home'
+import Routes from './routes'
+import VideoIndex from './components/videos/VideoIndex'
+import VideoEdit from './components/videos/VideoEdit'
+import VideoForm from './components/videos/VideoForm'
+import VideoNew from './components/videos/VideoNew'
+import VideoShow from './components/videos/VideoShow'
 
 
 class App extends Component {
@@ -57,6 +64,8 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
+          <AuthenticatedRoute user={user} path='/videos' component={VideoIndex}
+          />
         </main>
       </React.Fragment>
       // <React.Fragment>

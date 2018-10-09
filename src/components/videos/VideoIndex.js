@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
@@ -20,6 +20,7 @@ class VideoIndex extends React.Component {
   }
 
   async deleteVideo(event, videoId) {
+    console.log('videoid is', videoid)
     event.preventDefault()
 
     await
@@ -48,9 +49,9 @@ class VideoIndex extends React.Component {
             {videoRows}
           </tbody>
         </table>
-      </Layout>    
+      </Layout>
     )
   }
 }
 
-export default VideoIndex
+export default withRouter(VideoIndex)

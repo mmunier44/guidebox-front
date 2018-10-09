@@ -1,12 +1,15 @@
 import React from 'react'
-import { Nav } from 'components'
+import { Nav } from '../components'
+import { Footer } from '../components'
 
-const Layout = (prop) => {
+const Layout = (props) => {
   const { children } = props
   return (
     <div>
       <Nav />
       {children}
+
+
     </div>
   )
 }

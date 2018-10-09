@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { hashHistory } from 'react-router-dom'
 import {API, API_KEY} from '../apiConfig'
-import filestack from 'filestack-js'
-import { Footer } from 'components'
+import * as filestack from 'filestack-js'
+import { Footer } from '../components'
 
 // set the API key
 const client = filestack.init(API_KEY)
