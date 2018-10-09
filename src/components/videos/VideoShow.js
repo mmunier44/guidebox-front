@@ -16,6 +16,7 @@ class VideoShow extends React.Component {
   async componentDidMount()  {
     const response = await
       axios.get(`${apiUrl}/videos/${this.props.match.params.id}`)
+    console.log('_______dragons', this.props.match.params.id)
     this.setState({video: response.data.video})
   }
 

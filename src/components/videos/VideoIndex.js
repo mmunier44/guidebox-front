@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
+// import {VideoIndex} from '../../api.js'
 
 class VideoIndex extends React.Component {
   constructor(props) {
@@ -12,15 +13,26 @@ class VideoIndex extends React.Component {
     }
   }
 
+  //const res = await IndexDog(user)
 
   async componentDidMount() {
+    const { history, user } = this.props
+    console.log('this.props is', this.props)
+    console.log('user.token is', user.token)
     const response = await
-      axios.get(`${apiUrl}/videos`)
+      axios({
+        url: `${apiUrl}/videos/`,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization':`Token token=${user.token}`
+        },
+        method: 'GET'
+      })
     this.setState({videos: response.data.videos})
   }
 
   async deleteVideo(event, videoId) {
-    console.log('videoid is', videoid)
+    console.log('videoid is', videoId)
     event.preventDefault()
 
     await
@@ -33,7 +45,7 @@ class VideoIndex extends React.Component {
       return (
         <tr key={video.id}>
           <td><Link
-            to={`/videos/${video.id}/show`}>update<
+            to={`/videos/${video.id}/show`}>Index<
             /Link> | <a href="" onClick={(event) => this.deleteVideo(event,
             video.id)}>delete</a>
           </td>

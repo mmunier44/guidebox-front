@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
@@ -58,4 +58,4 @@ class VideoEdit extends React.Component {
   }
 }
 
-export default VideoEdit
+export default withRouter(VideoEdit)

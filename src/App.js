@@ -64,7 +64,11 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/videos' component={VideoIndex}
+          <AuthenticatedRoute user={user} exact path='/videos' render={() => (<VideoIndex user={user} /> )}
+          />
+          <AuthenticatedRoute user={user} exact path='/videos/new' render={() => (<VideoNew user={user} /> )}
+          />
+          <AuthenticatedRoute user={user} exact path='/videos/:id/edit' render={() => (<VideoEdit user={user} /> )}
           />
         </main>
       </React.Fragment>

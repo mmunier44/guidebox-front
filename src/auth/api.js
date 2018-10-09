@@ -64,3 +64,13 @@ export const changePassword = (passwords, user) => {
     })
   })
 }
+
+export const VideoIndex = (user) => {
+  return fetch(apiUrl + '/index', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization':`Token token=${user.token}`
+    },
+  })
+}
