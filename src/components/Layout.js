@@ -3,16 +3,14 @@ import { Nav } from '../components'
 import { Footer } from '../components'
 
 const Layout = (props) => {
-  const { children } = props
   return (
     <div>
+      <Nav />
 
-      {children}
+      {props.children}
 
     </div>
   )
 }
 
 export default Layout
-
-// <Nav />

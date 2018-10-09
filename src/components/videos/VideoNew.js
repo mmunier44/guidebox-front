@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
@@ -52,4 +52,4 @@ class VideoNew extends React.Component {
   }
 }
 
-export default VideoNew
+export default withRouter(VideoNew)

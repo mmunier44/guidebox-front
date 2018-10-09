@@ -53,16 +53,21 @@ class VideoIndex extends React.Component {
       return (
         <tr key={video.id}>
           <td><Link
-            to={`/videos/${video.id}/show`}>Video<
+            to={`/videos/${video.id}/show`}>{video.title}</Link></td>
+          <td>
+            <Link
+              to={`/videos/${video.id}/edit`}>update<
             /Link> | <a href="" onClick={(event) => this.deleteVideo(event,
-            video.id)}>delete</a>
+              video.id)}>delete</a>
           </td>
         </tr>
       )
     })
+
     return (
       <Layout>
         <h1>Videos</h1>
+        
         <table>
           <tbody>
             {videoRows}
