@@ -44,7 +44,7 @@ export default class AddContainer extends Component {
   async sendToServer (uuid) {
     const { state: { url }, title, author } = this
     try {
-      const reponse = await fetch(API, {
+      const response = await fetch(API, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
