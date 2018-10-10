@@ -5,7 +5,7 @@ import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
 import VideoForm from './VideoForm'
 
-class VideoNew extends React.Component {
+class OldVideoEdit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -20,44 +20,48 @@ class VideoNew extends React.Component {
     }
   }
 
-  handleChange = (event) => {
-    const newVideo = {...this.state.video,
-      [event.target.name]: event.target.value}
-    this.setState({video: newVideo})
-  }
-
-  handleSubmit = async (event) => {
-    event.preventDefault()
-    const videoParams = JSON.stringify({video: this.state.video})
+  async componentDidMount() {
     const { history, user } = this.props
-    console.log('DRAGONS this.state.video is' , this.state.video)
-    // 404 passing in ${this.state.video} = object:Object
-    // 404 this.state.video
-    console.log('videoparams', videoParams)
-    // console.log('backend line 67', req.user.id)
-    // just sending in videoParams gets 500 cannot set property owner of undefined
+    console.log('edit get', this.props)
+    console.log('edit long props', this.props.match.params.id)
+    console.log('response set state', response.data.video)
     const response = await
-
       axios({
         url: `${apiUrl}/videos/`,
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'Authorization':`Token token=${user.token}`
         },
-        data: videoParams
+        data: this.props.match.params.id
       })
-    console.log('DRAGONS2', videoParams)
-
-    this.props.history.push(`/videos/${response.data.video.id}/show`)
+    this.setState({video: response.data.video})
   }
+
+
+  handleChange = (event) => {
+    const editedVideo = {...this.state.video, [event.target.name]: event.target.value}
+
+    this.setState({video: editedVideo})
+  }
+
+  handleSubmit = async (event) => {
+    event.preventDefault()
+
+    const videoParams = JSON.stringify({video: this.state.video})
+    await
+    axios.put(`${apiUrl}/videos/${this.props.match.params.id}`, videoParams)
+
+    this.props.history.push(`/videos/${this.state.video.id}/show`)
+  }
+
   render() {
     const { video } = this.state
 
     return(
       <Layout>
         <VideoForm
-          action="create"
+          action="edit"
           video={video}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
@@ -67,4 +71,4 @@ class VideoNew extends React.Component {
   }
 }
 
-export default withRouter(VideoNew)
+export default withRouter(OldVideoEdit)

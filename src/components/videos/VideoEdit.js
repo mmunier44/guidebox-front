@@ -5,6 +5,8 @@ import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
 import VideoForm from './VideoForm'
 
+// dragons note for this.props.location.state.linkState
+
 class VideoEdit extends React.Component {
   constructor(props) {
     super(props)
@@ -19,15 +21,29 @@ class VideoEdit extends React.Component {
       }
     }
   }
-
+  // notes get rid of response below
   async componentDidMount() {
+    const { history, user } = this.props
+    console.log('edit get', this.props)
+    console.log('edit long props', this.props.match.params.id)
+    console.log('response is', response)
+    console.log('response set state', response.data.video)
     const response = await
-      axios.get(`${apiUrl}/videos/${this.props.match.params.id}`)
+      axios({
+        url: `${apiUrl}/videos/${videoId}`,
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization':`Token token=${user.token}`
+        },
+        data: this.props.match.params.id
+      })
     this.setState({video: response.data.video})
   }
 
+
   handleChange = (event) => {
-    const editedVideo = {...this.state.movie, [event.target.name]: event.target.value}
+    const editedVideo = {...this.state.video, [event.target.name]: event.target.value}
 
     this.setState({video: editedVideo})
   }

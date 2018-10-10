@@ -46,16 +46,18 @@ class VideoIndex extends React.Component {
     })
     this.setState({videos: this.state.videos.filter(video => video.id !== videoId)})
   }
-
+  // DRAGONS LINE 58
   render() {
     const videoRows = this.state.videos.map(video => {
       return (
-        <tr key={video.id}>
+        <tr key={video._id}>
           <td><Link
             to={`/videos/${video.id}/show`}>{video.url}</Link> | </td>
           <td>
             <Link
-              to={`/videos/${video.id}/edit`}>update<
+              to={{pathname: `/videos/${video.id}/edit`,
+                state: { linkState: video.id}}
+              }>update<
             /Link> | <a href=" " onClick={(event) => this.deleteVideo(event,
               video.id)}>delete</a>
           </td>
