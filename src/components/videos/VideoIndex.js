@@ -55,11 +55,11 @@ class VideoIndex extends React.Component {
             to={`/videos/${video.id}/show`}>{video.url}</Link> | </td>
           <td>
             <Link
-              to={{pathname: `/videos/${video.id}/edit`,
+              to={{pathname: `/videos/${video._id}/edit`,
                 state: { linkState: video.id}}
               }>update<
             /Link> | <a href=" " onClick={(event) => this.deleteVideo(event,
-              video.id)}>delete</a>
+              video._id)}>delete</a>
           </td>
         </tr>
       )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
@@ -14,6 +14,7 @@ class VideoShow extends React.Component {
   }
 
   async componentDidMount()  {
+    const { history, user } = this.props
     const response = await
       axios({
         url: `${apiUrl}/videos/${this.props.match.params.id}`,
@@ -33,7 +34,6 @@ class VideoShow extends React.Component {
     return (
       <Layout>
         <h1>Video: {video.title}</h1>
-
         <p>Url: {video.url}</p>
         <p>Author: {video.author}</p>
       </Layout>
@@ -41,4 +41,4 @@ class VideoShow extends React.Component {
   }
 }
 
-export default VideoShow
+export default withRouter(VideoShow)
