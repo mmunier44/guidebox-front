@@ -27,7 +27,8 @@ class VideoEdit extends React.Component {
     console.log('edit get', this.props)
     console.log('edit long props', this.props.match.params.id)
     console.log('response is', response)
-    console.log('response set state', response.data.video)
+    const videoId = this.props.match.params.id
+    // console.log('response set state', response.data.video)
     const response = await
       axios({
         url: `${apiUrl}/videos/${videoId}`,
@@ -50,8 +51,11 @@ class VideoEdit extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-
+    const videoId = this.props.match.params.id
+    console.log('long this is', this.props.match.params.id)
+    console.log('videoid is', videoId)
     const videoParams = JSON.stringify({video: this.state.video})
+    console.log('videoparams is', videoParams)
     await
     axios.put(`${apiUrl}/videos/${this.props.match.params.id}`, videoParams)
 

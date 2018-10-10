@@ -50,7 +50,11 @@ class VideoNew extends React.Component {
     console.log('DRAGONS2', videoParams)
 
     this.props.history.push(`/videos/${response.data.video.id}/show`)
+    console.log('this props history', this.props.history)
+    console.log('response is ', response)
+    console.log('response data is', response.data.video.id)
   }
+
   render() {
     const { video } = this.state
 

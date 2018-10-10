@@ -16,12 +16,6 @@ const VideoForm = (props) => {
         value={video.title} onChange={handleChange} placeholder="title" /></p>
       <p><input type="text" name="author"
         value={video.author} onChange={handleChange} placeholder="author" /></p>
-      <p><input type="number" name="views"
-        value={video.views} onChange={handleChange}
-        placeholder="views" /></p>
-      <p><input type="text" name="uploadAt"
-        value={video.uploadAt} onChange={handleChange}
-        placeholder="uploadAt" /></p>
       <p><input type="submit" value="Submit"
         onClick={handleSubmit} /></p>
     </React.Fragment>
@@ -36,3 +30,9 @@ export default VideoForm
 // <p><input type="boolean" name="converted"
 //   value={video.converted} onChange={handleChange}
 //   placeholder="converted" /></p>
+// <p><input type="number" name="views"
+//   value={video.views} onChange={handleChange}
+//   placeholder="views" /></p>
+// <p><input type="text" name="uploadAt"
+//   value={video.uploadAt} onChange={handleChange}
+//   placeholder="uploadAt" /></p>
