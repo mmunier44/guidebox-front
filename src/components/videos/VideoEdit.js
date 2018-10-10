@@ -21,8 +21,12 @@ class VideoEdit extends React.Component {
   }
 
   async componentDidMount() {
+    const { history, user } = this.props
     const response = await
       axios.get(`${apiUrl}/videos/${this.props.match.params.id}`)
+
+
+
     this.setState({video: response.data.video})
   }
 

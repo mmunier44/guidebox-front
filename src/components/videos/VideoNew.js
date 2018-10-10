@@ -28,23 +28,23 @@ class VideoNew extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-    const { history, user } = this.props
     const videoParams = JSON.stringify({video: this.state.video})
-    console.log('DRAGONS this.state.video is' ,this.state.video)
+    const { history, user } = this.props
+    console.log('DRAGONS this.state.video is' , this.state.video)
     // 404 passing in ${this.state.video} = object:Object
     // 404 this.state.video
     console.log('videoparams', videoParams)
     // console.log('backend line 67', req.user.id)
-    // STOPPED HERE
+    // just sending in videoParams gets 500 cannot set property owner of undefined
     const response = await
 
       axios({
         url: `${apiUrl}/videos/`,
-        headers: {
-          'Authorization':`Token token=${user.token}`
-        },
         method: 'POST',
-        videoParams
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization':`Token token=${user.token}`
+        }, videoParams
       })
     console.log('DRAGONS2', videoParams)
 

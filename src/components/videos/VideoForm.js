@@ -4,7 +4,7 @@ const VideoForm = (props) => {
   const { action, video, handleChange, handleSubmit } = props
   const formattedAction =
   action.charAt(0).toUpperCase() + action.slice(1)
-
+  // adjusted values to be this.state.value
   return (
     <React.Fragment>
       <h1>{formattedAction} Video</h1>
@@ -22,10 +22,6 @@ const VideoForm = (props) => {
       <p><input type="text" name="uploadAt"
         value={video.uploadAt} onChange={handleChange}
         placeholder="uploadAt" /></p>
-      <p><input type="boolean" name="converted"
-        value={video.converted} onChange={handleChange}
-        placeholder="converted" /></p>
-
       <p><input type="submit" value="Submit"
         onClick={handleSubmit} /></p>
     </React.Fragment>
@@ -37,3 +33,6 @@ export default VideoForm
 // <p><input type="disabled" name="uuid"
 //   value={video.uuid} onChange={handleChange}
 //   placeholder ="uuid" /></p>
+// <p><input type="boolean" name="converted"
+//   value={video.converted} onChange={handleChange}
+//   placeholder="converted" /></p>
