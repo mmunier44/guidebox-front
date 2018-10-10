@@ -50,7 +50,7 @@ class VideoIndex extends React.Component {
   render() {
     const videoRows = this.state.videos.map(video => {
       return (
-        <tr key={video.id}>
+        <tr key={video._id}>
           <td><Link
             to={`/videos/${video.id}/show`}>{video.url}</Link> | </td>
           <td>

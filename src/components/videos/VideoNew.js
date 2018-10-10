@@ -44,7 +44,8 @@ class VideoNew extends React.Component {
         headers: {
           'Content-Type': 'application/json',
           'Authorization':`Token token=${user.token}`
-        }, videoParams
+        },
+        data: videoParams
       })
     console.log('DRAGONS2', videoParams)
 
