@@ -17,6 +17,7 @@ import VideoEdit from './components/videos/VideoEdit'
 import VideoForm from './components/videos/VideoForm'
 import VideoNew from './components/videos/VideoNew'
 import VideoShow from './components/videos/VideoShow'
+import AddContainer from './containers/Add'
 
 
 class App extends Component {
@@ -70,11 +71,25 @@ class App extends Component {
           />
           <AuthenticatedRoute user={user} exact path='/videos/:id/edit' render={() => (<VideoEdit user={user} /> )}
           />
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <Route path='/' render={() => (
+            <AddContainer flash={this.flash} setUser={this.setUser} />)}
+          />
         </main>
       </React.Fragment>
-      // <React.Fragment>
-      //
-      // </React.Fragment>
 
     )
   }

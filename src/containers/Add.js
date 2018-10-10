@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { hashHistory } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import {API, API_KEY} from '../apiConfig'
 import * as filestack from 'filestack-js'
 import { Footer } from '../components'
+import { action, handleSubmit, handleClick, sendToServer } from '../components/videos/VideoForm'
 
 // set the API key
 const client = filestack.init(API_KEY)
@@ -65,6 +66,22 @@ export default class AddContainer extends Component {
     }
   }
 
+  async handleSubmit(event) {
+    event.preventDefault()
+    const { url } = this.state
+    const curl =
+    `${filestackAPI}/${API_KEY}/video_convert=preset:web,aspect_mode:preserve/${url.substring(url.lastIndexOf('/') + 1)}`
+    // First call to API
+    try {
+      const response = await fetch(curl)
+      reponse = await response.json()
+      const server = await this.sendToServer(response.uuid)
+      HashRouter.replace('/')
+    } catch (event) {
+      console.log(event)
+    }
+  }
+
   render() {
     const { url } = this.state
     return (
@@ -73,11 +90,20 @@ export default class AddContainer extends Component {
           <div className="panel panel-default">
             <div className="panel-heading">
               <h2 className="panel-title text-center">
-                <span className="glyphicon glyphicon-sunglasses" /> Upload Picture
+                <span className="glyphicon glyphicon-sunglasses" /> Upload Video
               </h2>
             </div>
             <div className="panel-body">
               <form name="document-form" onSubmit={this.handleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="title">URL</label>
+                  <input
+                    className="form-control"
+                    placeholder="Enter the Url..."
+                    ref={(input) => this.author = input}
+                    type="text"
+                  />
+                </div>
                 <div className="form-group">
                   <label htmlFor="title">Title</label>
                   <input
@@ -97,7 +123,7 @@ export default class AddContainer extends Component {
                   />
                 </div>
                 <div className="form-group">
-                  <label hmtlFor="video">Video</label>
+                  <label hmtlfor="video">Video</label>
                   { // When the URL is returned we show the preview url &&
                     <div className="embed-responsive embed-responsive-16by9">
                       <div className="thumbnail">
@@ -110,7 +136,7 @@ export default class AddContainer extends Component {
                   }
                   <div className="text-center dropup">
                     <button
-                      className="btn btn-default filepicker"
+                      className="btn btn-submit filepicker"
                       onClick={this.handleClick}
                       type="button"
                     >
@@ -127,7 +153,7 @@ export default class AddContainer extends Component {
             </div>
           </div>
         </div>
-        <Footer />
+
       </div>
     )
   }

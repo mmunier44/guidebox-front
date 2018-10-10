@@ -13,7 +13,8 @@ const VideosList = ({ videos }) => (
     <div className="row">
       {
         videos
-          .fiter(video => video.converted)
+        // Videos are shown only when converted === true
+          .filter(video => video.converted)
           .map((video, i) => <Video key={i} {...video} />)
       }
     </div>

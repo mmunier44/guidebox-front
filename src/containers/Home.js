@@ -25,8 +25,9 @@ export default class Home extends Component {
     return(
       <main className="container" id="container">
         <VideosList videos={videosList} />
-        <Footer />
       </main>
     )
   }
 }
+
+// <Footer />

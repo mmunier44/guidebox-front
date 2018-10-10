@@ -8,6 +8,9 @@ import { HashRouter, BrowserRouter } from 'react-router-dom'
 // import Layout from './src/components/Layout'
 import Routes from './routes'
 import VideoIndex from './components/videos/VideoIndex'
+import AddContainer from './containers/Add'
+import Home from './containers/Home'
+import Video from './components/Video'
 
 const appJsx = (
   <BrowserRouter>
@@ -18,8 +21,17 @@ const appJsx = (
 
 ReactDOM.render(appJsx, document.getElementById('root'))
 
+const Video2 = (
+  <BrowserRouter>
+    <Video />
+
+  </BrowserRouter>
+)
+
+ReactDOM.render(Video2, document.getElementById('root2'))
 
 // <Nav />
 // <Layout />
 // <App />
 // <Routes />
+// <AddContainer />
