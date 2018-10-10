@@ -30,7 +30,7 @@ class VideoIndex extends React.Component {
       })
     this.setState({videos: response.data.videos})
   }
-
+  // dragons note for this.props.location.state.linkState
   async deleteVideo(event, videoId) {
     const { history, user } = this.props
     console.log('videoid is', videoId)
@@ -46,7 +46,7 @@ class VideoIndex extends React.Component {
     })
     this.setState({videos: this.state.videos.filter(video => video.id !== videoId)})
   }
-
+  // DRAGONS LINE 58
   render() {
     const videoRows = this.state.videos.map(video => {
       return (
@@ -55,7 +55,9 @@ class VideoIndex extends React.Component {
             to={`/videos/${video.id}/show`}>{video.url}</Link> | </td>
           <td>
             <Link
-              to={`/videos/${video.id}/edit`}>update<
+              to={{pathname: `/videos/${video.id}/edit`,
+                state: { linkState: video.id}}
+              }>update<
             /Link> | <a href=" " onClick={(event) => this.deleteVideo(event,
               video.id)}>delete</a>
           </td>
