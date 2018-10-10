@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './App.scss'
 import { Route, Link } from 'react-router-dom'
+// import Routes from './routes'
+
 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
@@ -8,6 +10,15 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+import Home from './containers/Home'
+import Routes from './routes'
+import VideoIndex from './components/videos/VideoIndex'
+import VideoEdit from './components/videos/VideoEdit'
+import VideoForm from './components/videos/VideoForm'
+import VideoNew from './components/videos/VideoNew'
+import VideoShow from './components/videos/VideoShow'
+import AddContainer from './containers/Add'
+
 
 class App extends Component {
   constructor () {
@@ -40,7 +51,7 @@ class App extends Component {
       <React.Fragment>
         <Header user={user} />
         {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
-        
+
         <main className="container">
           <Route path='/sign-up' render={() => (
             <SignUp flash={this.flash} setUser={this.setUser} />
@@ -54,8 +65,32 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
+          <AuthenticatedRoute user={user} exact path='/videos' render={() => (<VideoIndex user={user} /> )}
+          />
+          <AuthenticatedRoute user={user} exact path='/videos/new' render={() => (<VideoNew user={user} /> )}
+          />
+          <AuthenticatedRoute user={user} exact path='/videos/:id/edit' render={() => (<VideoEdit user={user} /> )}
+          />
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <Route path='/' render={() => (
+            <AddContainer flash={this.flash} setUser={this.setUser} />)}
+          />
         </main>
       </React.Fragment>
+
     )
   }
 }
