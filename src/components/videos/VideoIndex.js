@@ -30,7 +30,7 @@ class VideoIndex extends React.Component {
       })
     this.setState({videos: response.data.videos})
   }
-  // dragons note for this.props.location.state.linkState
+
   async deleteVideo(event, videoId) {
     const { history, user } = this.props
     console.log('videoid is', videoId)
