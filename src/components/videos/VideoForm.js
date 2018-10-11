@@ -1,4 +1,5 @@
 import React from 'react'
+import { FormErrors } from './FormErrors'
 
 const VideoForm = (props) => {
   const { action, video, handleChange, handleSubmit } = props
@@ -8,16 +9,24 @@ const VideoForm = (props) => {
   return (
     <React.Fragment>
       <h1>{formattedAction} Video</h1>
-      <p><input type ="text" name="url"
-        value={video.url}
-        onChange={handleChange}
-        placeholder="url" /></p>
-      <p><input type="text" name="title"
-        value={video.title} onChange={handleChange} placeholder="title" /></p>
-      <p><input type="text" name="author"
-        value={video.author} onChange={handleChange} placeholder="author" /></p>
-      <p><input type="submit" value="Submit"
-        onClick={handleSubmit} /></p>
+      <form id='create-video'>
+        <p><input
+          required
+          type ="text" name="url"
+          value={video.url}
+          onChange={handleChange}
+          placeholder="url" /></p>
+        <p><input
+          required
+          type="text" name="title"
+          value={video.title} onChange={handleChange} placeholder="title" /></p>
+        <p><input
+          required
+          type="text" name="author"
+          value={video.author} onChange={handleChange} placeholder="author" /></p>
+        <p><input type="submit" value="Submit"
+          onClick={handleSubmit} /></p>
+      </form>
     </React.Fragment>
   )
 }

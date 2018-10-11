@@ -147,7 +147,7 @@ export default class AddContainer extends Component {
                 <button
                   className="btn btn-filestack btn-block submit"
                 >
-                      Submit
+                      Submit <span className="caret" />
                 </button>
               </form>
             </div>

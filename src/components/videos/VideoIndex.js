@@ -46,6 +46,7 @@ class VideoIndex extends React.Component {
       method: 'DELETE'
     })
       .then(() => flash(messages.deleteVideoSuccess, 'flash-success'))
+      .then(() => history.push('/'))
       .catch(() => flash(messages.deleteVideoFailure, 'flash-error'))
 
     this.setState({videos: this.state.videos.filter(video => video.id !== videoId)})

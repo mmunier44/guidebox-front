@@ -6,6 +6,7 @@ import {apiUrl, API_KEY} from '../../apiConfig'
 import VideoForm from './VideoForm'
 import { handleErrors } from '../../auth/api'
 import messages from '../../auth/messages'
+import { FormErrors } from './FormErrors'
 
 class VideoNew extends React.Component {
   constructor(props) {
@@ -17,7 +18,8 @@ class VideoNew extends React.Component {
         author: '',
         views: '',
         uploadAt: '',
-        converted: ''
+        converted: '',
+        formErrors: {url: '', title: '', author: ''}
       }
     }
   }
@@ -50,6 +52,7 @@ class VideoNew extends React.Component {
         data: videoParams
       })
         .then(() => flash(messages.newVideoSuccess, 'flash-success'))
+        .then(() => history.push('/'))
         .catch(() => flash(messages.newVideoFailure, 'flash-error'))
 
     console.log('DRAGONS2', videoParams)
