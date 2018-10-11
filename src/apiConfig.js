@@ -17,7 +17,3 @@ export {
   API_KEY,
   API
 }
-
-export default {
-  apiUrl
-}
