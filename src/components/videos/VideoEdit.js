@@ -42,7 +42,6 @@ class VideoEdit extends React.Component {
     this.setState({video: response.data.video})
   }
 
-
   handleChange = (event) => {
     const editedVideo = {...this.state.video, [event.target.name]: event.target.value}
 
@@ -56,6 +55,9 @@ class VideoEdit extends React.Component {
     console.log('videoid is', videoId)
     const videoParams = JSON.stringify({video: this.state.video})
     console.log('videoparams is', videoParams)
+    console.log('long ass string is', this.props.match.params.id)
+    console.log('this.props.history is', this.props.history)
+    console.log('this.state.video.id is', this.state.video.id)
     await
     axios.put(`${apiUrl}/videos/${this.props.match.params.id}`, videoParams)
 
