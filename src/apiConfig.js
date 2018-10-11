@@ -1,6 +1,6 @@
 let apiUrl
 const apiUrls = {
-  production: 'https://still-fortress-56094.herokuapp.com/',
+  production: 'https://still-fortress-56094.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
@@ -16,4 +16,8 @@ export {
   apiUrl,
   API_KEY,
   API
+}
+
+export default {
+  apiUrl
 }
