@@ -4,6 +4,8 @@ import axios from 'axios'
 import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
 import VideoForm from './VideoForm'
+import { handleErrors } from '../../auth/api'
+import messages from '../../auth/messages'
 
 class VideoNew extends React.Component {
   constructor(props) {
@@ -29,7 +31,7 @@ class VideoNew extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault()
     const videoParams = JSON.stringify({video: this.state.video})
-    const { history, user } = this.props
+    const { history, user, flash } = this.props
     console.log('DRAGONS this.state.video is' , this.state.video)
     // 404 passing in ${this.state.video} = object:Object
     // 404 this.state.video
@@ -47,13 +49,30 @@ class VideoNew extends React.Component {
         },
         data: videoParams
       })
+        .then(() => flash(messages.newVideoSuccess, 'flash-success'))
+        .catch(() => flash(messages.newVideoFailure, 'flash-error'))
+
     console.log('DRAGONS2', videoParams)
 
-    this.props.history.push(`/videos/${response.data.video.id}/show`)
+    // this.props.history.push(`/videos/${response.data.video.id}/show`)
     console.log('this props history', this.props.history)
     console.log('response is ', response)
-    console.log('response data is', response.data.video.id)
   }
+
+  // videoNew = event => {
+  //   event.preventDefault()
+  //   console.log('new video event', event)
+  //
+  //   const { video } = this.state
+  //   const { flash, history } = this.props
+  //
+  //   videoNew(this.state)
+  //     .then(res => res.ok ? res : new Error())
+  //     .then(res => res.json())
+  //     .then(() => flash(messages.newVideoSuccess, 'flash-success'))
+  //     .then(() => history.push('/'))
+  //     .catch(() => flash(messages.newVideoFailure, 'flash-error'))
+  // }
 
   render() {
     const { video } = this.state

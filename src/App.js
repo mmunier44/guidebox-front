@@ -18,6 +18,7 @@ import VideoForm from './components/videos/VideoForm'
 import VideoNew from './components/videos/VideoNew'
 import VideoShow from './components/videos/VideoShow'
 import AddContainer from './containers/Add'
+import DeleteVideo from './components/videos/VideoIndex'
 
 
 class App extends Component {
@@ -65,11 +66,11 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} exact path='/videos' render={() => (<VideoIndex user={user} /> )}
+          <AuthenticatedRoute user={user} exact path='/videos' render={() => (<DeleteVideo flash={this.flash} user={user} /> )}
           />
-          <AuthenticatedRoute user={user} exact path='/videos/new' render={() => (<VideoNew user={user} /> )}
+          <AuthenticatedRoute user={user} exact path='/videos/new' render={() => (<VideoNew flash={this.flash} user={user} /> )}
           />
-          <AuthenticatedRoute user={user} exact path='/videos/:id/edit' render={() => (<VideoEdit user={user} /> )}
+          <AuthenticatedRoute user={user} exact path='/videos/:id/edit' render={() => (<VideoEdit flash={this.flash} user={user} /> )}
           />
           <br>
           </br>

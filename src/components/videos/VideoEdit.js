@@ -4,6 +4,7 @@ import axios from 'axios'
 import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
 import VideoForm from './VideoForm'
+import messages from '../../auth/messages'
 
 // dragons note for this.props.location.state.linkState
 
@@ -50,7 +51,7 @@ class VideoEdit extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-    const { history, user } = this.props
+    const { history, user, flash } = this.props
     const videoId = this.props.match.params.id
     console.log('long this is', this.props.match.params.id)
     console.log('videoid is', videoId)
@@ -69,6 +70,8 @@ class VideoEdit extends React.Component {
       },
       data: videoParams
     })
+      .then(() => flash(messages.editVideoSuccess, 'flash-success'))
+      .catch(() => flash(messages.editVideoFailure, 'flash-error'))
     this.props.history.push(`/videos/${this.state.video.id}/show`)
   }
 

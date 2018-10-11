@@ -8,5 +8,11 @@ export default {
   signOutSuccess: 'Come back soon!',
   changePasswordSuccess: 'Password changed successfully!',
   changePasswordFailure: 'Failed to change passwords. Check your old password' +
-                         ' and try again.'
+                         ' and try again.',
+  newVideoSuccess: 'New Video has been posted!',
+  newVideoFailure: 'Oh no your awesome Video did not post!',
+  editVideoSuccess: 'Video has been edited!',
+  editVideoFailure: 'Oh no your awesome Video did not get edited!',
+  deleteVideoSuccess: 'Video has been Deleted!',
+  deleteVideoFailure: 'Oh no your awesome Video did not get Deleted!',
 }

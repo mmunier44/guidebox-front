@@ -4,6 +4,7 @@ import axios from 'axios'
 import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
 // import {VideoIndex} from '../../api.js'
+import messages from '../../auth/messages'
 
 class VideoIndex extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class VideoIndex extends React.Component {
   }
 
   async deleteVideo(event, videoId) {
-    const { history, user } = this.props
+    const { history, user, flash } = this.props
     console.log('videoid is', videoId)
     event.preventDefault()
 
@@ -44,6 +45,9 @@ class VideoIndex extends React.Component {
       },
       method: 'DELETE'
     })
+      .then(() => flash(messages.deleteVideoSuccess, 'flash-success'))
+      .catch(() => flash(messages.deleteVideoFailure, 'flash-error'))
+
     this.setState({videos: this.state.videos.filter(video => video.id !== videoId)})
   }
   // DRAGONS LINE 58
