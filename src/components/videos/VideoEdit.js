@@ -50,6 +50,7 @@ class VideoEdit extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
+    const { history, user } = this.props
     const videoId = this.props.match.params.id
     console.log('long this is', this.props.match.params.id)
     console.log('videoid is', videoId)
@@ -59,8 +60,15 @@ class VideoEdit extends React.Component {
     console.log('this.props.history is', this.props.history)
     console.log('this.state.video.id is', this.state.video.id)
     await
-    axios.put(`${apiUrl}/videos/${this.props.match.params.id}`, videoParams)
-
+    axios({
+      url: `${apiUrl}/videos/${this.props.match.params.id}`,
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':`Token token=${user.token}`
+      },
+      data: videoParams
+    })
     this.props.history.push(`/videos/${this.state.video.id}/show`)
   }
 
