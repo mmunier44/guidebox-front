@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App'
-import { HashRouter, BrowserRouter } from 'react-router-dom'
+import { HashRouter, HashRouter } from 'react-router-dom'
 // import Nav from './src/components/Nav'
 // import Layout from './src/components/Layout'
 import Routes from './routes'
@@ -14,19 +14,19 @@ import Video from './components/Video'
 import VideoShow from './components/videos/VideoShow'
 
 const appJsx = (
-  <BrowserRouter>
+  <HashRouter>
     <App />
 
-  </BrowserRouter>
+  </HashRouter>
 )
 
 ReactDOM.render(appJsx, document.getElementById('root'))
 
 const Video2 = (
-  <BrowserRouter>
+  <HashRouter>
     <Video />
 
-  </BrowserRouter>
+  </HashRouter>
 )
 
 ReactDOM.render(Video2, document.getElementById('root2'))
