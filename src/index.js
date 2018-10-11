@@ -11,6 +11,7 @@ import VideoIndex from './components/videos/VideoIndex'
 import AddContainer from './containers/Add'
 import Home from './containers/Home'
 import Video from './components/Video'
+// import VideoList from './VideoList'
 import VideoShow from './components/videos/VideoShow'
 
 const appJsx = (
