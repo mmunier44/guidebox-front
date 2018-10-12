@@ -8,7 +8,9 @@
 
 Fork/Clone Repo
 NPM Install in install dependencies
+
 NPM Start To start Local Server
+
 Enjoy!
 
 Link to Deployed Application
