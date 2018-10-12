@@ -1,8 +1,10 @@
 # General Assembly WDI Project 4: Capstone
 
-[Guidebox]
+##[Guidebox]
 
 [Imgur](https://i.imgur.com/dd4X9V6.png)
+
+<img src="https://i.imgur.com/dd4X9V6.png" alt="GuideBox">
 
 Fork/Clone Repo
 NPM Install in install dependencies
