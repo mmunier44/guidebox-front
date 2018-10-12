@@ -22,9 +22,9 @@ class OldVideoEdit extends React.Component {
 
   async componentDidMount() {
     const { history, user } = this.props
-    console.log('edit get', this.props)
-    console.log('edit long props', this.props.match.params.id)
-    console.log('response set state', response.data.video)
+    // console.log('edit get', this.props)
+    // console.log('edit long props', this.props.match.params.id)
+    // console.log('response set state', response.data.video)
     const response = await
       axios({
         url: `${apiUrl}/videos/`,

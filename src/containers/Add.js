@@ -12,6 +12,7 @@ const client = filestack.init(API_KEY)
 const filestackCDN='https://cdn.filestackcontent.com'
 const filestackAPI = 'https://process.filestackapi.com'
 
+// Main upload container
 export default class AddContainer extends Component {
 
   constructor(props) {
@@ -23,17 +24,17 @@ export default class AddContainer extends Component {
     this.handleSubmit=this.handleSubmit.bind(this)
     this.sendToServer=this.sendToServer.bind(this)
   }
-
+  // async handleClick to start multiple file upload
   async handleClick () {
     try {
       const { filesUploaded } = await this.filestack()
       const url = filesUploaded[0].url
       this.setState({ url })
     } catch (event) {
-      console.log(event)
+      // console.log(event)
     }
   }
-
+  // only accept videos at a specific max size
   filestack = () => {
     return client.pick(
       {
@@ -42,6 +43,7 @@ export default class AddContainer extends Component {
       }
     )
   }
+  // async sendToServer filestacks unique url id
   async sendToServer (uuid) {
     const { state: { url }, title, author } = this
     try {
@@ -53,7 +55,8 @@ export default class AddContainer extends Component {
         body: JSON.stringiify({
           url,
           title: title.value,
-          author: auhtor.value,
+          author: author.value,
+          // kind of randomizer for views and uploads
           views: Math.floor(Math.random() * 100000) + 1,
           uploadAt: Math.floor(Math.random() * 23) + 1,
           uuid,
@@ -62,7 +65,7 @@ export default class AddContainer extends Component {
       })
       return await response.json()
     } catch (event) {
-      console.log(event)
+      // console.log(event)
     }
   }
 
@@ -78,7 +81,7 @@ export default class AddContainer extends Component {
       const server = await this.sendToServer(response.uuid)
       HashRouter.replace('/')
     } catch (event) {
-      console.log(event)
+      // console.log(event)
     }
   }
 
@@ -136,7 +139,7 @@ export default class AddContainer extends Component {
                   }
                   <div className="text-center dropup">
                     <button
-                      className="btn btn-submit filepicker"
+                      className="btn btn-submit btn-block filepicker btn-disabled=disabled"
                       onClick={this.handleClick}
                       type="button"
                     >
@@ -145,15 +148,14 @@ export default class AddContainer extends Component {
                   </div>
                 </div>
                 <button
-                  className="btn btn-filestack btn-block submit"
+                  className="btn btn-filestack btn-block submit btn-disabled=disabled"
                 >
-                      Submit <span className="caret" />
+                      Submit
                 </button>
               </form>
             </div>
           </div>
         </div>
-
       </div>
     )
   }

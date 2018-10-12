@@ -25,9 +25,9 @@ class VideoEdit extends React.Component {
   // notes get rid of response below
   async componentDidMount() {
     const { history, user } = this.props
-    console.log('edit get', this.props)
-    console.log('edit long props', this.props.match.params.id)
-    console.log('response is', response)
+    // console.log('edit get', this.props)
+    // console.log('edit long props', this.props.match.params.id)
+    // console.log('response is', response)
     const videoId = this.props.match.params.id
     // console.log('response set state', response.data.video)
     const response = await
@@ -53,13 +53,13 @@ class VideoEdit extends React.Component {
     event.preventDefault()
     const { history, user, flash } = this.props
     const videoId = this.props.match.params.id
-    console.log('long this is', this.props.match.params.id)
-    console.log('videoid is', videoId)
+    // console.log('long this is', this.props.match.params.id)
+    // console.log('videoid is', videoId)
     const videoParams = JSON.stringify({video: this.state.video})
-    console.log('videoparams is', videoParams)
-    console.log('long ass string is', this.props.match.params.id)
-    console.log('this.props.history is', this.props.history)
-    console.log('this.state.video.id is', this.state.video.id)
+    // console.log('videoparams is', videoParams)
+    // console.log('long ass string is', this.props.match.params.id)
+    // console.log('this.props.history is', this.props.history)
+    // console.log('this.state.video.id is', this.state.video.id)
     await
     axios({
       url: `${apiUrl}/videos/${this.props.match.params.id}`,
@@ -71,7 +71,7 @@ class VideoEdit extends React.Component {
       data: videoParams
     })
       .then(() => flash(messages.editVideoSuccess, 'flash-success'))
-      .then(() => history.push('/videos/'))
+      .then(() => history.push('/'))
       .catch(() => flash(messages.editVideoFailure, 'flash-error'))
     this.props.history.push(`/videos/${this.state.video.id}/show`)
   }

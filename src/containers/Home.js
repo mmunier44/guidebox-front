@@ -16,7 +16,7 @@ export default class Home extends Component {
       const videosList = await response.json()
       this.setState({ videosList })
     } catch (event) {
-      console.log(event)
+      // console.log(event)
     }
   }
 

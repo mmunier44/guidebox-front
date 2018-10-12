@@ -34,10 +34,10 @@ class VideoNew extends React.Component {
     event.preventDefault()
     const videoParams = JSON.stringify({video: this.state.video})
     const { history, user, flash } = this.props
-    console.log('DRAGONS this.state.video is' , this.state.video)
+    // console.log('DRAGONS this.state.video is' , this.state.video)
     // 404 passing in ${this.state.video} = object:Object
     // 404 this.state.video
-    console.log('videoparams', videoParams)
+    // console.log('videoparams', videoParams)
     // console.log('backend line 67', req.user.id)
     // just sending in videoParams gets 500 cannot set property owner of undefined
     const response = await
@@ -55,11 +55,11 @@ class VideoNew extends React.Component {
         .then(() => history.push('/'))
         .catch(() => flash(messages.newVideoFailure, 'flash-error'))
 
-    console.log('DRAGONS2', videoParams)
+    // console.log('DRAGONS2', videoParams)
 
-    // this.props.history.push(`/videos/${response.data.video.id}/show`)
-    console.log('this props history', this.props.history)
-    console.log('response is ', response)
+    // this.props.hiFstory.push(`/videos/${response.data.video.id}/show`)
+    // console.log('this props history', this.props.history)
+    // console.log('response is ', response)
   }
 
   // videoNew = event => {

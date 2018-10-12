@@ -18,8 +18,8 @@ class VideoIndex extends React.Component {
 
   async componentDidMount() {
     const { history, user } = this.props
-    console.log('this.props is', this.props)
-    console.log('user.token is', user.token)
+    // console.log('this.props is', this.props)
+    // console.log('user.token is', user.token)
     const response = await
       axios({
         url: `${apiUrl}/videos/`,
@@ -34,7 +34,7 @@ class VideoIndex extends React.Component {
 
   async deleteVideo(event, videoId) {
     const { history, user, flash } = this.props
-    console.log('videoid is', videoId)
+    // console.log('videoid is', videoId)
     event.preventDefault()
 
     await
@@ -56,8 +56,10 @@ class VideoIndex extends React.Component {
     const videoRows = this.state.videos.map(video => {
       return (
         <tr key={video._id}>
-          <td><Link
+          <td> url  <Link
             to={`/videos/${video.id}/show`}>{video.url}</Link> | </td>
+          <td> title  <Link
+            to={`/videos/${video.id}/show`}>{video.title}</Link> | </td>
           <td>
             <Link
               to={{pathname: `/videos/${video._id}/edit`,
