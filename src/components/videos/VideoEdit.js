@@ -71,7 +71,7 @@ class VideoEdit extends React.Component {
       data: videoParams
     })
       .then(() => flash(messages.editVideoSuccess, 'flash-success'))
-      .then(() => history.push('/'))
+      .then(() => history.push('/videos/'))
       .catch(() => flash(messages.editVideoFailure, 'flash-error'))
     this.props.history.push(`/videos/${this.state.video.id}/show`)
   }
