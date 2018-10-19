@@ -7,6 +7,7 @@ import {apiUrl, API_KEY} from '../../apiConfig'
 import messages from '../../auth/messages'
 import VideoCarousel from './VideoCarousel'
 import { Video } from '../../components/Video.js'
+import { Table } from 'reactstrap'
 
 
 class VideoIndex extends React.Component {
@@ -57,20 +58,31 @@ class VideoIndex extends React.Component {
   render() {
     const videoRows = this.state.videos.map(video => {
       return (
-        <tr key={video._id}>
-          <td> url  <Link
-            to={`/videos/${video._id}/show`}>{video.url}</Link> | </td>
-          <td> title  <Link
-            to={`/videos/${video._id}/show`}>{video.title}</Link> | </td>
-          <td>
-            <Link
-              to={{pathname: `/videos/${video._id}/edit`,
-                state: { linkState: video.id}}
-              }>update<
-            /Link> | <a href=" " onClick={(event) => this.deleteVideo(event,
-              video._id)}>delete</a>
-          </td>
-        </tr>
+        <Table dark key={video._id}>
+          <thead>
+            <tr>
+              <th> url </th>
+              <th> title </th>
+              <th> edit | delete </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><Link
+                to={`/videos/${video._id}/show`}>{video.url}</Link> | </td>
+              <td><Link
+                to={`/videos/${video._id}/show`}>{video.title}</Link> | </td>
+              <td>
+                <Link
+                  to={{pathname: `/videos/${video._id}/edit`,
+                    state: { linkState: video.id}}
+                  }>update<
+                /Link> | <a href=" " onClick={(event) => this.deleteVideo(event,
+                  video._id)}>delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </Table>
       )
     })
 
