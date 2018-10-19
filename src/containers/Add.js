@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { HashRouter } from 'react-router-dom'
-import {API, API_KEY} from '../apiConfig'
+import { API_KEY} from '../apiConfig'
 import * as filestack from 'filestack-js'
 import { Footer } from '../components'
 import { action, handleSubmit, handleClick, sendToServer } from '../components/videos/VideoForm'
@@ -11,6 +11,7 @@ const client = filestack.init(API_KEY)
 // Filestack URLs
 const filestackCDN='https://cdn.filestackcontent.com'
 const filestackAPI = 'https://process.filestackapi.com'
+const API = 'http://localhost:3000/api/v1/videos'
 
 // Main upload container
 export default class AddContainer extends Component {
@@ -31,7 +32,7 @@ export default class AddContainer extends Component {
       const url = filesUploaded[0].url
       this.setState({ url })
     } catch (event) {
-      // console.log(event)
+      console.log(event)
     }
   }
   // only accept videos at a specific max size
@@ -65,7 +66,7 @@ export default class AddContainer extends Component {
       })
       return await response.json()
     } catch (event) {
-      // console.log(event)
+      console.log(event)
     }
   }
 
@@ -81,7 +82,7 @@ export default class AddContainer extends Component {
       const server = await this.sendToServer(response.uuid)
       HashRouter.replace('/')
     } catch (event) {
-      // console.log(event)
+      console.log(event)
     }
   }
 
@@ -139,7 +140,7 @@ export default class AddContainer extends Component {
                   }
                   <div className="text-center dropup">
                     <button
-                      className="btn btn-submit btn-block filepicker btn-disabled=disabled"
+                      className="btn btn-submit btn-block filepicker btn"
                       onClick={this.handleClick}
                       type="button"
                     >
@@ -148,7 +149,7 @@ export default class AddContainer extends Component {
                   </div>
                 </div>
                 <button
-                  className="btn btn-filestack btn-block submit btn-disabled=disabled"
+                  className="btn btn-filestack btn-block submit btn"
                 >
                       Submit
                 </button>

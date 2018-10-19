@@ -25,11 +25,10 @@ class VideoEdit extends React.Component {
   // notes get rid of response below
   async componentDidMount() {
     const { history, user } = this.props
-    // console.log('edit get', this.props)
-    // console.log('edit long props', this.props.match.params.id)
-    // console.log('response is', response)
+    console.log('edit get', this.props)
+    console.log('edit long props', this.props.match.params.id)
+    console.log('response is', response)
     const videoId = this.props.match.params.id
-    // console.log('response set state', response.data.video)
     const response = await
       axios({
         url: `${apiUrl}/videos/${videoId}`,

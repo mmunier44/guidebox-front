@@ -5,6 +5,9 @@ import Layout from '../Layout'
 import {apiUrl, API_KEY} from '../../apiConfig'
 // import {VideoIndex} from '../../api.js'
 import messages from '../../auth/messages'
+import VideoCarousel from './VideoCarousel'
+import { Video } from '../../components/Video.js'
+
 
 class VideoIndex extends React.Component {
   constructor(props) {
@@ -14,7 +17,6 @@ class VideoIndex extends React.Component {
     }
   }
 
-  //const res = await IndexDog(user)
 
   async componentDidMount() {
     const { history, user } = this.props
@@ -36,7 +38,6 @@ class VideoIndex extends React.Component {
     const { history, user, flash } = this.props
     // console.log('videoid is', videoId)
     event.preventDefault()
-
     await
     axios({
       url: `${apiUrl}/videos/${videoId}`,
@@ -51,15 +52,16 @@ class VideoIndex extends React.Component {
 
     this.setState({videos: this.state.videos.filter(video => video.id !== videoId)})
   }
+
   // DRAGONS LINE 58
   render() {
     const videoRows = this.state.videos.map(video => {
       return (
         <tr key={video._id}>
           <td> url  <Link
-            to={`/videos/${video.id}/show`}>{video.url}</Link> | </td>
+            to={`/videos/${video._id}/show`}>{video.url}</Link> | </td>
           <td> title  <Link
-            to={`/videos/${video.id}/show`}>{video.title}</Link> | </td>
+            to={`/videos/${video._id}/show`}>{video.title}</Link> | </td>
           <td>
             <Link
               to={{pathname: `/videos/${video._id}/edit`,

@@ -19,6 +19,7 @@ import VideoNew from './components/videos/VideoNew'
 import VideoShow from './components/videos/VideoShow'
 import AddContainer from './containers/Add'
 import DeleteVideo from './components/videos/VideoIndex'
+import VideoCarousel from './components/videos/VideoCarousel'
 
 
 class App extends Component {

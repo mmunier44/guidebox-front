@@ -13,6 +13,7 @@ import Home from './containers/Home'
 import Video from './components/Video'
 // import VideoList from './VideoList'
 import VideoShow from './components/videos/VideoShow'
+import VideoCarousel from './components/videos/VideoCarousel'
 
 const appJsx = (
   <HashRouter>
@@ -23,14 +24,14 @@ const appJsx = (
 
 ReactDOM.render(appJsx, document.getElementById('root'))
 
-const Video2 = (
-  <HashRouter>
-    <Video />
-
-  </HashRouter>
-)
-
-ReactDOM.render(Video2, document.getElementById('root2'))
+// const Video2 = (
+//   <HashRouter>
+//     <Video />
+//
+//   </HashRouter>
+// )
+//
+// ReactDOM.render(Video2, document.getElementById('root2'))
 
 // <Nav />
 // <Layout />
