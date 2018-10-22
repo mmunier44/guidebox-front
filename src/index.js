@@ -11,7 +11,9 @@ import VideoIndex from './components/videos/VideoIndex'
 import AddContainer from './containers/Add'
 import Home from './containers/Home'
 import Video from './components/Video'
-// import VideoList from './VideoList'
+import Video2 from './components/Video2'
+import Video3 from './components/Video3'
+import VideosList from './components/VideosList'
 import VideoShow from './components/videos/VideoShow'
 import VideoCarousel from './components/videos/VideoCarousel'
 
@@ -24,14 +26,32 @@ const appJsx = (
 
 ReactDOM.render(appJsx, document.getElementById('root'))
 
-// const Video2 = (
-//   <HashRouter>
-//     <Video />
-//
-//   </HashRouter>
-// )
-//
-// ReactDOM.render(Video2, document.getElementById('root2'))
+const WorkVideo = (
+  <HashRouter>
+    <Video />
+
+  </HashRouter>
+)
+
+ReactDOM.render(WorkVideo, document.getElementById('root2'))
+
+const EarthVideo = (
+  <HashRouter>
+    <Video3 />
+
+  </HashRouter>
+)
+
+ReactDOM.render(EarthVideo, document.getElementById('root3'))
+
+const Synthesizer = (
+  <HashRouter>
+    <Video2 />
+
+  </HashRouter>
+)
+
+ReactDOM.render(Synthesizer, document.getElementById('root4'))
 
 // <Nav />
 // <Layout />

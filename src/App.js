@@ -73,6 +73,8 @@ class App extends Component {
           />
           <AuthenticatedRoute user={user} exact path='/videos/:id/edit' render={() => (<VideoEdit flash={this.flash} user={user} /> )}
           />
+          <AuthenticatedRoute user={user} exact path='/videos/:id/show' render={() => (<VideoShow flash={this.flash} user={user} /> )}
+          />
           <br>
           </br>
           <br>

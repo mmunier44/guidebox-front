@@ -11,7 +11,7 @@ const client = filestack.init(API_KEY)
 // Filestack URLs
 const filestackCDN='https://cdn.filestackcontent.com'
 const filestackAPI = 'https://process.filestackapi.com'
-const API = 'http://localhost:3000/api/v1/videos'
+const API = 'http://localhost:4741/api/v1/videos'
 
 // Main upload container
 export default class AddContainer extends Component {
@@ -132,7 +132,7 @@ export default class AddContainer extends Component {
                     <div className="embed-responsive embed-responsive-16by9">
                       <div className="thumbnail">
                         <video controls>
-                          <source src={url} type="video/mp4" />
+                          <source src={'https://cdn.filestackcontent.com/9s8EDwrQEaDEQVz7EHsQ'} type="video/mp4" />
                               Your browser does not support the video tag.
                         </video>
                       </div>
