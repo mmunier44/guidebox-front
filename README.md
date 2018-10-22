@@ -4,7 +4,7 @@
 
 [Imgur](https://i.imgur.com/dd4X9V6.png)
 
-<img src="https://i.imgur.com/dd4X9V6.png" alt="GuideBox">
+<img src="https://i.imgur.com/B5JJfJ0.png" alt="GuideBox">
 
 Fork/Clone Repo
 
