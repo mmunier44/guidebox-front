@@ -118,15 +118,6 @@ export default class AddContainer extends Component {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="title">Author</label>
-                  <input
-                    className="form-control"
-                    placeholder="Enter the Author..."
-                    ref={(input) => this.author = input}
-                    type="text"
-                  />
-                </div>
-                <div className="form-group">
                   <label hmtlfor="video">Video</label>
                   { // When the URL is returned we show the preview url &&
                     <div className="embed-responsive embed-responsive-16by9">
@@ -161,3 +152,13 @@ export default class AddContainer extends Component {
     )
   }
 }
+
+// <div className="form-group">
+//   <label htmlFor="title">Author</label>
+//   <input
+//     className="form-control"
+//     placeholder="Enter the Author..."
+//     ref={(input) => this.author = input}
+//     type="text"
+//   />
+// </div>

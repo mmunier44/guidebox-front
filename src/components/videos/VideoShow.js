@@ -33,18 +33,29 @@ class VideoShow extends React.Component {
 
   render() {
     const { video } = this.state
+    console.log('video is', video)
+    console.log('this.state is', this.state)
 
     return (
-      <div className="col-md-3">
-        <div className="embed-responsive embed-responsive-16by9">
-          <video controls>
-            <source src={video.url} type="video/mp4" />
-            {console.log('video.url is',video.url)}
+      <div className="container">
+        <div className=".col-md-offset-4 media-list">
+          <div className="embed-responsive embed-responsive-16by9">
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <h2 className="panel-title text-center">
+                  <span className="glyphicon glyphicon-sunglasses" /> Show Video
+                </h2>
+              </div>
+              <video controls>
+                <source src={video.url} type="video/mp4" />
+                {console.log('video.url is',video.url)}
             Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className="video-info">
-          <h4><a href="#">{video.title}</a></h4>
+              </video>
+            </div>
+            <div className="video-info">
+              <h4><a href="#">{video.title}</a></h4>
+            </div>
+          </div>
         </div>
       </div>
     )
